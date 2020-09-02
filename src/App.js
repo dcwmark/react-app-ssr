@@ -12,7 +12,7 @@ const App = () => {
     setCount(count - 1);
   };
 
-return (
+  return (
     <>
       <p>{ count }</p>
       <button onClick={ increment }>Increment</button>
