@@ -7,6 +7,8 @@ import ReactDOMServer from 'react-dom/server';
 
 import App from '../src/App';
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 
 app.use('^/$', (req, res, next) => {
@@ -20,6 +22,14 @@ app.use('^/$', (req, res, next) => {
         '<div id="root"></div>',
         `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
       )
-    )
+    );
   });
+});
+
+/* Serve all static files from the build folder. */
+/* From this folder [__dirname], one level up [../], the 'build' folder [build]. */
+app.use(express.static(path.resolve(__dirname, '../', 'build')));
+
+app.listen(PORT, () => {
+  console.log(`App listening on PORT: ${PORT}`);
 });

@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - `npx create-react-app react-app-ssr`
 - `npm i express`
+- `npm i @babel/preset-env @babel/preset-react @babel/register ignore-styles`
 
 - Update src/Apps.js and what is needed to create a skeleton app.
 - Create [root]/server/server.js
@@ -30,3 +31,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   ```js
     fs.readFile(path.resolve('./build/index.html'), 'utf-8', (err, data) => {
   ```
+  
+- `import` `react` and `react-dom/server` so to be able to launch <App /> as string.
+
+  ```js
+     return res.send(
+      data.replace(
+        '<div id="root"></div>',
+        `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
+      )
+    );
+  ```
+
+- Update src/index.js replace `ReactDOM.render()` to `ReactDOM.hydrate`.
+
+  ```js
+    ReactDOM.hydrate(     <=== from ReactDOM.render()
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+  ```
+
