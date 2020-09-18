@@ -4,12 +4,11 @@ Repo: [https://github.com/satansdeer/ssr-example](https://github.com/satansdeer/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
 - `npx create-react-app react-app-ssr`
 - `npm i express`
 - `npm i @babel/preset-env @babel/preset-react @babel/register ignore-styles`
 
-- Update src/Apps.js and what is needed to create a skeleton app.
+- Update client/Apps.js and what is needed to create a skeleton app.
 - Create [root]/server/server.js
   - import express
   - create const app from express()
@@ -25,7 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   ```
 
 - At this point , `build` the react application so that we will hava a pre-build `index.html`.
-- `npm rub build`
+- `npm run build`
 - Then, `import` `fs` and `path` modules to read the [root]/build/index.html.
 
   ```js
@@ -43,7 +42,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     );
   ```
 
-- Update src/index.js replace `ReactDOM.render()` to `ReactDOM.hydrate`.
+- Update client/index.js replace `ReactDOM.render()` to `ReactDOM.hydrate`.
 
   ```js
     ReactDOM.hydrate(     <=== from ReactDOM.render()
