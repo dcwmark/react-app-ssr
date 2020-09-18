@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - `npm i express`
 - `npm i @babel/preset-env @babel/preset-react @babel/register ignore-styles`
 
-- Update client/Apps.js and what is needed to create a skeleton app.
+- Update client/App.js and what is needed to create a skeleton app.
 - Create [root]/server/server.js
   - import express
   - create const app from express()
